@@ -1,0 +1,147 @@
+<html>
+<head>
+  <title>Building Chatbots from Your Public Website</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/mediaD5612AQFtL45-bGxGkA" alt="" title="" />
+      <h1><a href="https://www.linkedin.com/pulse/building-chatbots-from-your-public-website-qucy-wei-qiu-fgixc">Building Chatbots from Your Public Website</a></h1>
+    <p class="created">Created on 2025-06-08 14:52</p>
+  <p class="published">Published on 2025-06-26 15:25</p>
+  <div><p>In this article, we’ll explore how to build a chatbot that uses your public website content as its knowledge base, leveraging open-source libraries and simple architectural patterns.</p><h2>1. Crawling and Converting Website Content</h2><p>The first step is to crawl your website and normalize the content so it can be efficiently retrieved and understood by a large language model (LLM). While libraries like BeautifulSoup, Crawlee or Scrapy can scrape HTML, they often leave you with fragmented or messy markup that requires a lot of custom post-processing.</p><p>I discovered <a href="https://github.com/unclecode/crawl4ai" target="_blank">Crawl4AI</a>, which provides built-in rules to transform raw HTML into clean Markdown—a format much easier for LLMs to parse. For example, with just a few lines of code you can scrape every page of hsbc.com.hk, and group each subdomain into its own folder.</p><figure><img data-media-urn="urn:li:digitalmediaAsset:D5612AQE_2GpwMtw0jg" src="https://media.licdn.com/dms/image/v2/D5612AQE_2GpwMtw0jg/article-inline_image-shrink_1000_1488/B56Zesj0F.H8AU-/0/1750946760214?e=1775692800&amp;v=beta&amp;t=pRdRAbOItxlvcSmcl3NJRJaJPwwo5DVFHs8ogDyO4Ck"><figcaption>Scraped Knowledge Structure</figcaption></figure><p>And convert each HTML page into a Markdown file, preserving image URLs and links for later reference.</p><figure><img data-media-urn="urn:li:digitalmediaAsset:D5612AQHP_ubQCmmhxQ" src="https://media.licdn.com/dms/image/v2/D5612AQHP_ubQCmmhxQ/article-inline_image-shrink_1500_2232/B56ZesktRVHQAY-/0/1750947003684?e=1775692800&amp;v=beta&amp;t=LRBYBuN4Vn1bKhQsNhIGw4I2EpbrN_6Q827lA7dJreg"><figcaption>Scraped HTML in markdown format</figcaption></figure><h2>2 - Indexing and Retrieval: Introducing “Sitemap RAG”</h2><p>Traditional vector-based retrieval can miss important contextual groupings—e.g., if a user asks, “What’s the best credit card for online shopping?”, you need every card’s details to compare them fairly. One option is Graph-RAG, but building and maintaining a complete knowledge graph can be complex and brittle.</p><p>Instead, we propose <strong>Sitemap RAG</strong>—leveraging the fact that most public websites are already organized into logical subdomains and sections. By extending the existing sitemap into a tree structure, we can associate each node with its scraped content (and attachments, if any):</p><figure><img data-media-urn="urn:li:digitalmediaAsset:D5612AQHBNASohdWPyw" src="https://media.licdn.com/dms/image/v2/D5612AQHBNASohdWPyw/article-inline_image-shrink_1000_1488/B56ZesnHLeHUAQ-/0/1750947624825?e=1775692800&amp;v=beta&amp;t=xQWNxDhm2BvI0jQVQWxylbd-FmoeXvtX_X39BHxgprM"><figcaption>Accounts Sub Site Map</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D5612AQGY_E_okVqjCQ" src="https://media.licdn.com/dms/image/v2/D5612AQGY_E_okVqjCQ/article-inline_image-shrink_1500_2232/B56Zesm.7BHEAU-/0/1750947592619?e=1775692800&amp;v=beta&amp;t=fX1ZLNvEFGZTz2urHpVnDvYthjlnFpS0w-s74jZ3tkM"><figcaption>Credit Cards Subsite Map</figcaption></figure><p>We then load this tree into a relational database with three tables:</p><ol><li><p><strong>sites</strong>: Basic site metadata (e.g., domain, crawl date).</p></li><li><p><strong>site_nodes</strong>: The tree hierarchy (parent-child relationships).</p></li><li><p><strong>content</strong>: The raw Markdown for each node, indexed by URL/path.</p></li></ol><figure><img data-media-urn="urn:li:digitalmediaAsset:D5612AQE683IakpHD-w" src="https://media.licdn.com/dms/image/v2/D5612AQE683IakpHD-w/article-inline_image-shrink_1500_2232/B56Zesos5XHoAU-/0/1750948042949?e=1775692800&amp;v=beta&amp;t=67wtCxBB-6brvCbyooqJiljA8-jJaYq05blZzoyd4zk"><figcaption>Tables for sitemap RAG</figcaption></figure><h2>3. Retrieval Workflow</h2><p>When a user asks a question, we follow a simple, guided retrieval process:</p><ol><li><p><strong>Level-1 Selection</strong> Pass the top-level sitemap (e.g., “Accounts,” “Credit Cards,” etc.) to the LLM and let it select top 3 subsite maps. </p></li><li><p><strong>Subnode Selection</strong> For each selected category, present its subtree to the LLM and ask it to pick the most relevant nodes and URL paths.</p></li><li><p><strong>Content Assembly</strong> Retrieve all Markdown content for the chosen paths and concatenate them into the final context. The LLM can then compare details across pages (e.g., multiple credit-card offers) and generate a comprehensive response.</p></li></ol><p>Below is a demo video showing a full retrieval when comparing credit-card products—complete with images and multimodal responses.</p><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption>Comprehensive retrieval and answer generation (suggest play in 2x speed)</figcaption></figure><h2>4. Handling Dynamic Components</h2><p>Many websites include interactive elements—mortgage calculators, loan estimators, etc. To support these, you can:</p><ol><li><p><strong>Predefine Component Templates</strong> Write small React or Vue widgets for each calculator or interactive element.</p></li><li><p><strong>Intent Detection</strong> When the user’s query indicates they want to use a calculator (e.g., “What would my monthly repayment be on a personal loan?”), embed the corresponding widget directly in the chatbot interface.</p></li></ol><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption>Dynamic component in chat repsonse (suggest play in 2x speed)</figcaption></figure><h2>5. Why This Matters</h2><p>By combining clean Markdown conversion, a sitemap-driven RAG index, and dynamic component embedding, you can deliver a chatbot experience that feels thoroughly modern:</p><ul><li><p><strong>Multimodal:</strong> Includes images and interactive widgets.</p></li><li><p><strong>Comprehensive:</strong> Retrieves and compares all relevant pages.</p></li><li><p><strong>Maintainable:</strong> Relies on your existing sitemap structure rather than a bespoke knowledge graph.</p></li></ul><p>It isn’t trivial to set up—but the payoff is a chatbot that truly feels like a 2025 experience, not a static FAQ bot from 2010. </p></div>
+</body>
+</html>

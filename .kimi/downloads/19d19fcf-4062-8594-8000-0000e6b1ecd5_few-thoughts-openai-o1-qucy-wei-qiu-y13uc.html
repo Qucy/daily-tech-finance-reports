@@ -1,0 +1,147 @@
+<html>
+<head>
+  <title>A Few Thoughts on OpenAI o1</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/mediaD5612AQG09-Y04aPibg" alt="openAI o1" title="openAI o1" />
+      <h1><a href="https://www.linkedin.com/pulse/few-thoughts-openai-o1-qucy-wei-qiu-y13uc">A Few Thoughts on OpenAI o1</a></h1>
+    <p class="created">Created on 2024-09-15 15:14</p>
+  <p class="published">Published on 2024-09-15 15:38</p>
+  <div><p><strong>1 - A Leap in Large Models    </strong></p><p>I believe that OpenAI o1 represents the most significant advancement in foundational models since GPT-4. Its improvements in logical reasoning have surpassed expectations in both effectiveness and methodology. GPT-4o and o1 explore different directions for large models, but o1 is more fundamental and far more important than GPT-4o, as I will explain below.</p><p><strong>2 - Why is o1 more important than GPT-4o?</strong></p><p>These two paths represent distinct strategies for developing large models. When GPT-4o was released, I was somewhat disappointed as I expected OpenAI to prioritize the o1 approach. GPT-4o primarily seeks to unify different modalities like text, images, and videos, which isn’t expected to significantly improve the model's intelligence. In contrast, o1 focuses on how far large models can advance towards AGI (Artificial General Intelligence) and where their limits lie—clearly a more critical issue.</p><p>GPT-4o’s issue is that the current intelligence level of large models is not sufficient for complex tasks, limiting its practical applications. Expecting multimodal data like images and videos to drastically improve intelligence is unrealistic. These inputs mostly enhance the model’s perceptual abilities, not its cognitive reasoning. Cognitive improvements largely depend on text-based LLMs, and the key to enhancing these models lies in improving their complex reasoning abilities. The stronger the logical reasoning, the more complex applications a model can handle, raising the potential of large model applications. Therefore, improving logical reasoning should be the top priority.</p><p><strong>3 - Automates Chain-of-Thought (COT) reasoning</strong></p><p>OpenAI o1 essentially automates Chain-of-Thought (COT) reasoning. Breaking down complex problems into smaller steps via COT helps large models handle complex tasks, but this used to be done manually. The process from user questions to correct answers is like AlphaGo’s gameplay, creating a vast tree of possible steps, where each COT step contributes to the search. Manually crafted COTs may not be optimal. With a large dataset of problems and solutions, Monte Carlo Tree Search (MCTS) and reinforcement learning can train large models to find the best COT paths quickly.  </p><p>The more complex the problem, the larger the search space and the more steps required in the COT process, making the reasoning cost higher. However, model performance is the priority, and decreasing inference costs is achievable given the rapid reduction in the past year.</p><p>As o1 automates complex prompt engineering, the need for manual prompt crafting will diminish. Previously, solving complex problems required intricate prompts, but o1 handles these automatically. Requiring users to write such prompts is not user-friendly, and automating these processes is the natural trend.</p><p><strong>4 - Agentic Framework</strong></p><p>While the concept of Agents is popular, it hasn’t been practical due to the base models' insufficient reasoning abilities. If a base model decomposes a task into 10 steps, even a 95% success rate for each step results in a disappointing 59% final success rate. Will o1 improve this? Yes and no. The o1 Model Card shows significant improvements for simpler Agent tasks but not for complex multi-step tasks. While o1 doesn’t immediately solve this, its approach to enhancing reasoning through self-play has great potential. Thus, the future of Agents seems promising.</p><p><strong>5 - Ending</strong></p><p>OpenAI o1 has opened up another promising direction for everyone, and it looks like competition will soon heat up in this area. I think this direction is much better to focus on than GPT-4o. While the specific technical details are still unclear, the overall direction is clear, and the results have already been proven. In the next six months or so, the leading companies will probably figure out the key technologies and catch up, and who knows, this path doesn't seem to require massive resources—it’s more about algorithms and data. The amount of data needed probably won’t be huge, so it looks like a cheaper competition. This is definitely a direction worth pursuing.</p></div>
+</body>
+</html>
