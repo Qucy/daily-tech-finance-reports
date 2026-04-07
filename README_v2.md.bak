@@ -1,19 +1,6 @@
-# AI & Banking Daily Report System v3.0
+# AI & Banking Daily Report System v2.0
 
-AI与银行业日报系统 - 双语版本
-
-## ✨ 新特性 (v3.0)
-
-**双语支持**: 自动生成中文 (`.sc.md`) 和英文 (`.en.md`) 双版本报告
-
-```
-reports/YYYYMMDD/
-├── daily_report_YYYYMMDD.sc.md    # 简体中文版本
-├── daily_report_YYYYMMDD.en.md    # English Version
-├── search_keywords.txt            # 搜索关键词 (双语)
-├── dedup_prompt.txt               # 去重提示 (双语)
-└── banking_ai_sources.yaml        # 信源配置
-```
+AI与银行业日报系统 - 完整改进版
 
 ## 🎯 系统架构
 
@@ -31,14 +18,14 @@ reports/YYYYMMDD/
 │                    Processing Layer                          │
 ├────────────────────┬────────────────────────────────────────┤
 │  GitHub Monitor    │  Automated Report Generation           │
-│  (every 3 hours)   │  (daily at 6:13) - Bilingual           │
+│  (every 3 hours)   │  (daily at 6:13)                       │
 └────────────────────┴────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    Output Layer                              │
 ├─────────────────────────────────────────────────────────────┤
-│  📄 Daily Report (SC + EN Markdown)                         │
+│  📄 Daily Report (Markdown + HTML + PDF)                    │
 │  📊 Regulatory Radar                                        │
 │  🏦 Competitor Intelligence                                 │
 │  🐙 GitHub Trends                                           │
@@ -52,14 +39,12 @@ reports/YYYYMMDD/
 daily-tech-finance-reports/
 ├── config/
 │   ├── banking_ai_sources.yaml      # 银行业AI信源配置 (5层)
-│   ├── monitor_config.json          # GitHub监控配置
-│   └── model_filter.yaml            # 模型筛选配置 (新增)
+│   └── monitor_config.json          # GitHub监控配置
 ├── templates/
 │   └── regulatory_radar_template.md # 监管雷达模板
 ├── scripts/
 │   ├── monitor.py                   # GitHub监控脚本
-│   ├── generate_report_v3.sh        # 报告生成脚本 (v3-双语)
-│   ├── generate_report_v2.sh        # 报告生成脚本 (v2-旧版)
+│   ├── generate_report_v2.sh        # 报告生成脚本 (v2)
 │   ├── start_monitor.sh             # 手动启动监控
 │   └── setup_cron.sh                # 定时任务设置
 ├── monitor_data/                    # 监控数据存储
@@ -68,10 +53,6 @@ daily-tech-finance-reports/
 │   └── reports/                     # 监控报告
 ├── reports/                         # 主日报存档
 │   └── YYYYMM/DD/
-│       ├── daily_report_YYYYMMDD.sc.md
-│       ├── daily_report_YYYYMMDD.en.md
-│       ├── search_keywords.txt
-│       └── dedup_prompt.txt
 ├── logs/                            # 运行日志
 ├── MONITOR_README.md                # 监控模块文档
 └── README.md                        # 本文档
@@ -84,18 +65,19 @@ daily-tech-finance-reports/
 ```bash
 cd /root/.openclaw/workspace/daily-tech-finance-reports
 
-# 安装Python依赖
+# 安装Python依赖 (tweepy可选，目前只使用GitHub)
 pip install --break-system-packages PyGithub requests schedule
 
 # 确保gh CLI已安装并登录
-git --version
-git auth status
+git --version  # 验证git
+git auth status  # 验证GitHub登录
 ```
 
 ### 2. 配置环境变量 (可选)
 
 ```bash
 # 添加到 ~/.bashrc 或 ~/.zshrc
+export TWITTER_BEARER_TOKEN="your_token"  # 目前不使用
 export GITHUB_TOKEN="$(gh auth token)"     # 自动获取
 ```
 
@@ -105,53 +87,35 @@ export GITHUB_TOKEN="$(gh auth token)"     # 自动获取
 # GitHub监控测试
 python3 scripts/monitor.py --once
 
-# 报告生成测试 (双语版本)
-bash scripts/generate_report_v3.sh
+# 报告生成测试
+bash scripts/generate_report_v2.sh
 ```
 
 ### 4. 设置定时任务
 
 ```bash
-# 自动配置cron (已更新为v3版本)
+# 自动配置cron
 bash scripts/setup_cron.sh
 
 # 手动配置
 crontab -e
 ```
 
-## 📊 日报结构 (v3 - 双语)
+## 📊 日报结构 (v2)
 
-### 中文版本 (`.sc.md`)
+### 新增章节
 
 | 章节 | 内容 | 来源 |
 |------|------|------|
-| **📌 今日主线** | 核心事件 + 关键数据 | AI生成 |
-| **一、今日必读** | 技术突破、市场动态 | 搜索聚合 |
-| **二、专家观点** 🎓 | AI研究员、银行专家观点 | Twitter/X |
-| **三、监管雷达** 🏛️ | 全球监管动态、政策解读 | 官方信源 |
-| **四、同业动态** 🏦 | 主要银行AI举措、竞争情报 | 新闻+GitHub |
-| **五、技术-业务映射** 🔧 | 技术突破→银行业务影响 | AI分析 |
-| **六、GitHub趋势** 🐙 | 热门仓库、新发布 | `monitor.py` |
-| **七、关键阈值监测** 📊 | 重要指标跟踪 | 自动生成 |
-| **八、行动建议** ✅ | 立即/短期/战略行动 | AI分析 |
-
-### 英文版本 (`.en.md`)
-
-| Section | Content | Source |
-|---------|---------|--------|
-| **📌 Today's Focus** | Key events + critical data | AI Generated |
-| **I. Must-Read Today** | Tech breakthroughs, market dynamics | Aggregated |
-| **II. Expert Insights** 🎓 | AI researchers, banking experts | Twitter/X |
-| **III. Regulatory Radar** 🏛️ | Global regulatory updates | Official |
-| **IV. Peer Bank Intelligence** 🏦 | Major bank AI initiatives | News+GitHub |
-| **V. Tech-Business Mapping** 🔧 | Tech→Banking impact analysis | AI Analysis |
-| **VI. GitHub Trends** 🐙 | Trending repos, releases | `monitor.py` |
-| **VII. Threshold Monitoring** 📊 | Key metrics tracking | Auto-generated |
-| **VIII. Action Items** ✅ | Immediate/short-term/strategic | AI Analysis |
+| **监管雷达** 🏛️ | 全球监管动态、政策解读、合规日历 | `banking_ai_sources.yaml` |
+| **同业动态** 🏦 | 主要银行AI举措、竞争情报 | GitHub监控 + 新闻搜索 |
+| **技术-业务映射** 🔧 | 技术突破→银行业务影响分析 | AI分析生成 |
+| **GitHub趋势** 🐙 | 热门仓库、新发布、技术趋势 | `scripts/monitor.py` |
+| **关键阈值监测** 📊 | 重要指标跟踪、预警系统 | 自动生成 |
+| **行动建议** ✅ | 立即/短期/战略行动项 | AI分析生成 |
 
 ### 报告示例
 
-**中文版本 (`.sc.md`):**
 ```markdown
 # AI & Banking Daily Report | 2026-04-06
 
@@ -160,31 +124,41 @@ crontab -e
 **关键数据**: OSWorld-V 75% vs 人类72.4%
 
 ## 一、今日必读
-### 1.1 技术突破
-...
+[...]
 
-## 三、监管雷达 🏛️
+## 二、监管雷达 🏛️
+### 2.1 今日监管动态
 | 地区 | 机构 | 动态 | 影响等级 |
 |------|------|------|----------|
-| 🇺🇸 美国 | 美联储 | 发布AI模型风险管理指引 | 🟡 关注 |
-```
+| 🇺🇸 US | Fed | 发布AI模型风险管理指引 | 🟡 关注 |
 
-**English Version (`.en.md`):**
-```markdown
-# AI & Banking Daily Report | 2026-04-06
+### 2.2 So What for Banking
+| 维度 | 影响 | 说明 |
+|------|------|------|
+| 合规成本 | 🟡 | 需更新模型验证流程 |
 
-## 📌 Today's Focus
-**Key Events**: GPT-5.4 surpasses human baseline
-**Critical Data**: OSWorld-V 75% vs Human 72.4%
+## 三、同业动态 🏦
+### 3.1 主要银行AI举措
+| 银行 | 举措 | 技术 | 评估 |
+|------|------|------|------|
+| JPMorgan | 扩展COiN平台 | 自研 | ⭐⭐⭐⭐ |
 
-## I. Must-Read Today
-### 1.1 Technology Breakthroughs
-...
+## 四、技术-业务映射 🔧
+[...]
 
-## III. Regulatory Radar 🏛️
-| Region | Agency | Development | Impact Level |
-|--------|--------|-------------|--------------|
-| 🇺🇸 US | Fed | AI Model Risk Management Guidance | 🟡 Watch |
+## 五、GitHub趋势 🐙
+### 5.1 本周热门
+- HKUDS/CLI-Anything: 28,395 ⭐
+- aiming-lab/AutoResearchClaw: 10,414 ⭐
+
+## 六、关键阈值监测 📊
+| 指标 | 当前值 | 阈值 | 状态 |
+|------|--------|------|------|
+| GPT-5.4 OSWorld-V | 75% | 72.4% | 🟢 已超越 |
+
+## 七、行动建议 ✅
+- [ ] 评估GPT-5.4在文档处理场景的应用
+- [ ] 关注Fed AI指引的合规要求
 ```
 
 ## ⚙️ 配置说明
@@ -192,7 +166,7 @@ crontab -e
 ### 信源配置 (`config/banking_ai_sources.yaml`)
 
 ```yaml
-# 5层信源结构 (双语)
+# 5层信源结构
 
 primary_sources:      # 一级信源 (官方)
   regulatory_intl:    # 国际监管 (BIS, FSB, Basel)
@@ -203,7 +177,7 @@ primary_sources:      # 一级信源 (官方)
 
 secondary_sources:    # 二级信源 (分析)
   consulting:         # 咨询机构 (McKinsey, BCG)
-  research:           # 研究机构 (CB Insights)
+  research:           # 研究机构 (CB Insights, Gartner)
   media:              # 专业媒体 (Risk.net, FT)
   media_cn:           # 国内媒体 (财新, 第一财经)
 
@@ -216,6 +190,10 @@ competitive_intel:    # 竞争情报
   competitors:        # 竞争对手
   hiring_signals:     # 招聘信号
   patents:            # 专利监控
+
+macro_economic:       # 宏观数据
+  ai_investment:      # AI投资
+  ai_infrastructure:  # 基础设施
 ```
 
 ### GitHub监控配置 (`config/monitor_config.json`)
@@ -224,15 +202,16 @@ competitive_intel:    # 竞争情报
 {
   "github_monitor": {
     "enabled": true,
-    "check_interval_minutes": 180,
+    "check_interval_minutes": 180,  // 每3小时
     "repositories": {
-      "banking_fintech": [
+      "banking_fintech": [          // 银行金融科技
         "huggingface/transformers",
-        "langchain-ai/langchain"
+        "langchain-ai/langchain",
+        "microsoft/promptflow"
       ],
-      "fraud_detection": [...],
-      "algorithmic_trading": [...],
-      "nlp_banking": [...]
+      "fraud_detection": [...],     // 反欺诈
+      "algorithmic_trading": [...], // 算法交易
+      "nlp_banking": [...]          // NLP银行应用
     }
   }
 }
@@ -242,12 +221,12 @@ competitive_intel:    # 竞争情报
 
 ### Cron时间表
 
-```bash
+```
 # GitHub监控 - 每3小时
 0 */3 * * *  cd /workspace/... && python3 scripts/monitor.py --once
 
-# 日报生成 - 每天6:13 (v3双语版本)
-13 6 * * *   cd /workspace/... && bash scripts/generate_report_v3.sh
+# 日报生成 - 每天6:13
+13 6 * * *   cd /workspace/... && bash scripts/generate_report_v2.sh
 
 # 日志清理 - 每周日凌晨3点
 0 3 * * 0    find logs/ -name "*.log" -mtime +30 -delete
@@ -261,9 +240,7 @@ competitive_intel:    # 竞争情报
 00:00       GitHub监控                    monitor_data/reports/daily_00.md
 03:00       GitHub监控                    monitor_data/reports/daily_03.md
 06:00       GitHub监控                    monitor_data/reports/daily_06.md
-06:13       日报生成 (双语)               reports/YYYYMM/DD/
-                                          ├── daily_report_YYYYMMDD.sc.md
-                                          └── daily_report_YYYYMMDD.en.md
+06:13       日报生成                      reports/YYYYMM/DD/daily_report_YYYYMMDD.md
 09:00       GitHub监控                    monitor_data/reports/daily_09.md
 12:00       GitHub监控                    monitor_data/reports/daily_12.md
 15:00       GitHub监控                    monitor_data/reports/daily_15.md
@@ -271,28 +248,28 @@ competitive_intel:    # 竞争情报
 21:00       GitHub监控                    monitor_data/reports/daily_21.md
 ```
 
-## 🔍 搜索关键词 (双语)
+## 🔍 搜索关键词
 
-`generate_report_v3.sh` 自动生成双语关键词：
+`generate_report_v2.sh` 自动生成以下关键词：
 
-### 一级信源：监管动态 / Regulatory Updates
+### 一级信源：监管动态
 - BIS/FSB/Basel Committee AI guidance
 - Federal Reserve/OCC/CFPB AI banking
 - Bank of England/FCA/EU AI Act
 - HKMA/MAS/PBOC fintech AI
-- 中国人民银行 人工智能 银行 2026
 
-### 二级信源：银行业AI / Banking AI
+### 二级信源：银行业AI应用
 - JPMorgan COiN/Goldman Sachs ML
 - HSBC innovation/digital
-- 招商银行/平安银行/工商银行 AI
+- 招商银行/平安银行 AI
+- Credit scoring/fraud detection/AML
 
-### 三级信源：技术突破 / Tech Breakthroughs
+### 三级信源：技术突破
 - Claude/GPT/Gemini benchmarks
 - AMD MI355X/NVIDIA B300
 - Agentic AI enterprise adoption
 
-### 四级信源：竞争情报 / Competitive Intel
+### 四级信源：竞争情报
 - AI fintech funding/acquisition
 - AI researcher hiring
 
@@ -307,29 +284,16 @@ python3 scripts/monitor.py --once
 # 2. 查看监控报告
 cat monitor_data/reports/daily_YYYYMMDD_HHMMSS.md
 
-# 3. 生成日报模板 (双语)
-bash scripts/generate_report_v3.sh
+# 3. 生成日报模板
+bash scripts/generate_report_v2.sh
 
 # 4. 使用AI填充报告
-# 将生成的两个模板分别交给Kimi/OpenAI等AI填充内容
+# 将生成的模板交给Kimi/OpenAI等AI填充内容
 
 # 5. 推送到GitHub
 git add reports/
-git commit -m "📊 Daily Report: $(date +%Y-%m-%d) - Bilingual"
+git commit -m "📊 Daily Report: $(date +%Y-%m-%d)"
 git push
-```
-
-### 查看生成的文件
-
-```bash
-# 查看最新生成的双语报告
-ls -la reports/$(date +%Y%m)/$(date +%d)/
-
-# 示例输出:
-# daily_report_20260407.sc.md   # 中文版本
-# daily_report_20260407.en.md   # English version
-# search_keywords.txt           # 搜索关键词
-# dedup_prompt.txt              # 去重提示
 ```
 
 ### 查看日志
@@ -341,7 +305,7 @@ tail -f logs/report_gen.log
 
 # 查看历史
 ls -la logs/
-cat logs/report_gen.log | grep "✓"
+cat logs/monitor.log | grep "ERROR"
 ```
 
 ### 更新配置
@@ -351,7 +315,7 @@ cat logs/report_gen.log | grep "✓"
 vim config/monitor_config.json
 
 # 更新搜索关键词
-vim scripts/generate_report_v3.sh
+vim scripts/generate_report_v2.sh
 
 # 修改信源
 vim config/banking_ai_sources.yaml
@@ -363,7 +327,7 @@ vim config/banking_ai_sources.yaml
 
 ```bash
 # 检查GitHub认证
-gh auth status
+git auth status
 
 # 测试连接
 python3 scripts/monitor.py --test-github
@@ -379,7 +343,7 @@ tail logs/monitor.log
 ls -la reports/
 
 # 手动运行查看错误
-bash -x scripts/generate_report_v3.sh
+bash -x scripts/generate_report_v2.sh
 ```
 
 ### Cron任务不运行
@@ -391,17 +355,9 @@ service cron status
 # 查看cron日志
 grep CRON /var/log/syslog
 
-# 查看当前cron任务
-crontab -l
+# 手动测试命令
+cd /workspace/... && python3 scripts/monitor.py --once
 ```
-
-## 🔄 版本历史
-
-| 版本 | 日期 | 变更 |
-|------|------|------|
-| v1.0 | 2026-03 | 初始版本 - 基础日报生成 |
-| v2.0 | 2026-04-04 | 增强版 - 监管雷达、GitHub监控、竞争情报 |
-| **v3.0** | **2026-04-07** | **双语支持 - 中文(sc.md) + 英文(en.md)** |
 
 ## 🗺️ 路线图
 
@@ -411,21 +367,19 @@ crontab -l
 - [x] GitHub自动监控
 - [x] 增强版报告模板
 - [x] 定时任务设置
-- [x] **双语版本支持 (v3.0)**
-- [x] **模型筛选机制 - 排除风评不佳模型 (Llama 4 Scout等)**
 
 ### 计划中 📋
 - [ ] RSS订阅监控 (替代Twitter)
 - [ ] 飞书/企业微信推送
 - [ ] 数据可视化看板
 - [ ] 智能去重算法
-- [ ] LLM自动填充报告
+- [ ] 多语言支持 (中英文自动切换)
 
 ### 未来 🔮
+- [ ] LLM自动填充报告
 - [ ] 智能摘要生成
 - [ ] 预测性分析
 - [ ] 个性化推荐
-- [ ] 多格式输出 (PDF自动生成)
 
 ## 📄 许可证
 
@@ -434,4 +388,4 @@ MIT License
 ---
 
 *Created by Kimi Claw for Qucy / HSBC Innovation*  
-*Version: 3.0 | Last Updated: 2026-04-07*
+*Version: 2.0 | Last Updated: 2026-04-06*

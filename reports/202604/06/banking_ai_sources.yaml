@@ -1,0 +1,536 @@
+# 银行业AI情报信源配置 | Banking AI Intelligence Sources
+# 配置版本: v1.0
+# 更新日期: 2026-04-05
+# 用途: 为daily-tech-finance-report提供精准的信源分层和搜索关键词
+
+# ============================================
+# 第一层：一级信源（Primary Sources）
+# 特点：官方发布、一手信息、高可信度
+# 优先级：最高（必须覆盖）
+# ============================================
+
+primary_sources:
+  # 国际监管机构
+  regulatory_intl:
+    - name: "BIS - Bank for International Settlements"
+      url: "https://www.bis.org"
+      keywords: ["BIS AI banking", "Bank for International Settlements artificial intelligence"]
+      frequency: "weekly"
+      
+    - name: "FSB - Financial Stability Board"
+      url: "https://www.fsb.org"
+      keywords: ["FSB AI financial stability", "Financial Stability Board AI"]
+      frequency: "monthly"
+      
+    - name: "Basel Committee"
+      url: "https://www.bis.org/bcbs/"
+      keywords: ["Basel Committee AI", "BCBS operational risk AI"]
+      frequency: "monthly"
+
+  # 美国监管机构
+  regulatory_us:
+    - name: "Federal Reserve"
+      url: "https://www.federalreserve.gov"
+      keywords: ["Federal Reserve AI guidance", "Fed artificial intelligence banking"]
+      frequency: "weekly"
+      
+    - name: "OCC - Office of Comptroller of Currency"
+      url: "https://www.occ.gov"
+      keywords: ["OCC AI model risk", "Office Comptroller Currency artificial intelligence"]
+      frequency: "bi-weekly"
+      
+    - name: "FDIC"
+      url: "https://www.fdic.gov"
+      keywords: ["FDIC AI", "FDIC fintech innovation"]
+      frequency: "monthly"
+      
+    - name: "CFPB - Consumer Financial Protection Bureau"
+      url: "https://www.consumerfinance.gov"
+      keywords: ["CFPB AI lending", "Consumer Financial Protection Bureau algorithm"]
+      frequency: "weekly"
+
+  # 英国/欧洲监管
+  regulatory_uk_eu:
+    - name: "Bank of England / PRA"
+      url: "https://www.bankofengland.co.uk"
+      keywords: ["Bank of England AI", "PRA machine learning"]
+      frequency: "weekly"
+      
+    - name: "FCA - Financial Conduct Authority"
+      url: "https://www.fca.org.uk"
+      keywords: ["FCA AI regulation", "Financial Conduct Authority artificial intelligence"]
+      frequency: "weekly"
+      
+    - name: "EBA - European Banking Authority"
+      url: "https://www.eba.europa.eu"
+      keywords: ["EBA AI", "European Banking Authority machine learning"]
+      frequency: "monthly"
+      
+    - name: "ECB - European Central Bank"
+      url: "https://www.ecb.europa.eu"
+      keywords: ["ECB AI banking", "European Central Bank artificial intelligence"]
+      frequency: "bi-weekly"
+
+  # 亚太监管
+  regulatory_apac:
+    - name: "HKMA - Hong Kong Monetary Authority"
+      url: "https://www.hkma.gov.hk"
+      keywords: ["HKMA AI", "Hong Kong Monetary Authority fintech"]
+      frequency: "bi-weekly"
+      
+    - name: "MAS - Monetary Authority of Singapore"
+      url: "https://www.mas.gov.sg"
+      keywords: ["MAS AI", "Monetary Authority Singapore artificial intelligence"]
+      frequency: "weekly"
+      
+    - name: "PBOC - People's Bank of China"
+      url: "http://www.pbc.gov.cn"
+      keywords: ["央行 AI", "人民银行 人工智能", "PBOC fintech"]
+      frequency: "weekly"
+      
+    - name: "CBIRC - 中国银保监会"
+      url: "http://www.cbirc.gov.cn"
+      keywords: ["银保监会 AI", "银行 人工智能 监管", "CBIRC algorithm"]
+      frequency: "weekly"
+      
+    - name: "CSRC - 中国证监会"
+      url: "http://www.csrc.gov.cn"
+      keywords: ["证监会 AI", "证券 人工智能 监管", "CSRC algorithm trading"]
+      frequency: "bi-weekly"
+
+  # 顶级银行官方博客/研发
+  bank_official:
+    - name: "JPMorgan Tech Blog"
+      url: "https://www.jpmorgan.com/technology"
+      keywords: ["JPMorgan AI", "JPM COiN", "JPMorgan machine learning"]
+      frequency: "daily"
+      
+    - name: "Goldman Sachs Engineering"
+      url: "https://developer.gs.com"
+      keywords: ["Goldman Sachs AI", "Goldman machine learning trading"]
+      frequency: "weekly"
+      
+    - name: "HSBC Innovation"
+      url: "https://www.hsbc.com/innovation"
+      keywords: ["HSBC AI", "HSBC machine learning", "汇丰 人工智能"]
+      frequency: "weekly"
+      
+    - name: "Citi Innovation"
+      url: "https://www.citigroup.com/technology"
+      keywords: ["Citi AI", "Citigroup artificial intelligence"]
+      frequency: "bi-weekly"
+      
+    - name: "Morgan Stanley Technology"
+      url: "https://www.morganstanley.com/im"
+      keywords: ["Morgan Stanley AI", "Morgan Stanley machine learning"]
+      frequency: "bi-weekly"
+      
+    - name: "Bank of America Technology"
+      url: "https://www.bankofamerica.com/tech-innovation"
+      keywords: ["Bank of America AI", "BofA machine learning"]
+      frequency: "bi-weekly"
+      
+    - name: "招商银行 FinTech"
+      url: "http://www.cmbchina.com"
+      keywords: ["招商银行 AI", "招行 人工智能", "CMB fintech"]
+      frequency: "weekly"
+      
+    - name: "平安银行"
+      url: "http://bank.pingan.com"
+      keywords: ["平安银行 AI", "Ping An Bank artificial intelligence"]
+      frequency: "weekly"
+
+# ============================================
+# 第二层：二级信源（Secondary Sources）
+# 特点：行业媒体、研究机构、高质量分析
+# 优先级：高（深度分析来源）
+# ============================================
+
+secondary_sources:
+  # 顶级咨询公司
+  consulting:
+    - name: "McKinsey Global Institute"
+      url: "https://www.mckinsey.com"
+      keywords: ["McKinsey AI banking", "McKinsey Global Institute finance"]
+      frequency: "weekly"
+      
+    - name: "BCG - Boston Consulting Group"
+      url: "https://www.bcg.com"
+      keywords: ["BCG AI banking", "Boston Consulting Group artificial intelligence finance"]
+      frequency: "weekly"
+      
+    - name: "Deloitte Financial Services"
+      url: "https://www2.deloitte.com/financialservices"
+      keywords: ["Deloitte AI banking", "Deloitte Center Financial Services"]
+      frequency: "weekly"
+      
+    - name: "PwC Financial Services"
+      url: "https://www.pwc.com/us/en/industries/financial-services.html"
+      keywords: ["PwC AI banking", "PricewaterhouseCoopers artificial intelligence"]
+      frequency: "weekly"
+      
+    - name: "EY Financial Services"
+      url: "https://www.ey.com/en_gl/industries/financial-services"
+      keywords: ["EY AI banking", "Ernst Young artificial intelligence finance"]
+      frequency: "weekly"
+      
+    - name: "KPMG Banking"
+      url: "https://kpmg.com/xx/en/home/industries/financial-services.html"
+      keywords: ["KPMG AI banking", "KPMG artificial intelligence financial"]
+      frequency: "weekly"
+
+  # 行业研究机构
+  research:
+    - name: "CB Insights"
+      url: "https://www.cbinsights.com"
+      keywords: ["CB Insights AI banking", "CB Insights fintech"]
+      frequency: "daily"
+      
+    - name: "Gartner Financial Services"
+      url: "https://www.gartner.com/en/industries/banking-investment-services"
+      keywords: ["Gartner AI banking", "Gartner hype cycle AI"]
+      frequency: "weekly"
+      
+    - name: "Forrester Research"
+      url: "https://www.forrester.com/industries/banking/"
+      keywords: ["Forrester AI banking", "Forrester financial services"]
+      frequency: "weekly"
+      
+    - name: "Celent"
+      url: "https://celent.com"
+      keywords: ["Celent AI banking", "Celent fintech"]
+      frequency: "bi-weekly"
+      
+    - name: "Autonomous Research"
+      url: "https://autonomous.com"
+      keywords: ["Autonomous Research AI", "Autonomous fintech"]
+      frequency: "monthly"
+
+  # 专业媒体
+  media:
+    - name: "Risk.net"
+      url: "https://www.risk.net"
+      keywords: ["Risk.net AI", "Risk.net machine learning"]
+      frequency: "daily"
+      
+    - name: "American Banker"
+      url: "https://www.americanbanker.com"
+      keywords: ["American Banker AI", "American Banker artificial intelligence"]
+      frequency: "daily"
+      
+    - name: "Finextra"
+      url: "https://www.finextra.com"
+      keywords: ["Finextra AI", "Finextra machine learning banking"]
+      frequency: "daily"
+      
+    - name: "Banking Technology"
+      url: "https://www.bankingtech.com"
+      keywords: ["Banking Technology AI", "Banking Technology fintech"]
+      frequency: "daily"
+      
+    - name: "Financial Times - AI"
+      url: "https://www.ft.com/artificial-intelligence"
+      keywords: ["Financial Times AI banking", "FT artificial intelligence finance"]
+      frequency: "daily"
+      
+    - name: "Bloomberg - AI"
+      url: "https://www.bloomberg.com/artificial-intelligence"
+      keywords: ["Bloomberg AI banking", "Bloomberg machine learning"]
+      frequency: "daily"
+      
+    - name: "Reuters - Fintech"
+      url: "https://www.reuters.com/technology/fintech/"
+      keywords: ["Reuters AI banking", "Reuters fintech"]
+      frequency: "daily"
+
+  # 国内专业媒体
+  media_cn:
+    - name: "财新 - 金融科技"
+      url: "https://finance.caixin.com"
+      keywords: ["财新 AI", "财新 人工智能 银行", "财新 fintech"]
+      frequency: "daily"
+      
+    - name: "金融时报（中国）"
+      url: "http://www.financialnews.com.cn"
+      keywords: ["金融时报 AI", "金融时报 人工智能", "金融时报 银行"]
+      frequency: "daily"
+      
+    - name: "银行家杂志"
+      url: "http://www.thebanker.com.cn"
+      keywords: ["银行家 AI", "银行家 人工智能", "银行家 fintech"]
+      frequency: "weekly"
+      
+    - name: "第一财经 - 金融科技"
+      url: "https://www.yicai.com/fintech"
+      keywords: ["第一财经 AI", "第一财经 人工智能 银行", "第一财经 fintech"]
+      frequency: "daily"
+      
+    - name: "21世纪经济报道 - 金融科技"
+      url: "http://www.21jingji.com"
+      keywords: ["21世纪 AI", "21世纪 人工智能 银行", "21世纪经济报道 fintech"]
+      frequency: "daily"
+
+# ============================================
+# 第三层：三级信源（Tertiary Sources）
+# 特点：Twitter/X一手爆料、GitHub趋势、KOL观点
+# 优先级：中（早期信号、市场 sentiment）
+# ============================================
+
+tertiary_sources:
+  # Twitter/X KOL（需要Twitter API监控）
+  twitter_kol:
+    - handle: "@karpathy"
+      name: "Andrej Karpathy"
+      focus: ["LLM", "AI infra", "Tesla/AI"]
+      keywords: ["Karpathy AI", "Andrej Karpathy"]
+      
+    - handle: "@AndrewYNg"
+      name: "Andrew Ng"
+      focus: ["AI education", "Landing AI", "Enterprise AI"]
+      keywords: ["Andrew Ng AI", "Andrew Ng agentic"]
+      
+    - handle: "@goodfellow_ian"
+      name: "Ian Goodfellow"
+      focus: ["GAN", "Adversarial ML", "Security"]
+      keywords: ["Ian Goodfellow AI"]
+      
+    - handle: "@hardmaru"
+      name: "David Ha"
+      focus: ["Generative models", "Reinforcement learning"]
+      keywords: ["David Ha AI", "hardmaru"]
+      
+    - handle: "@jeremyphoward"
+      name: "Jeremy Howard"
+      focus: ["fast.ai", "Practical ML"]
+      keywords: ["Jeremy Howard fast.ai"]
+      
+    # 银行/金融科技领域专家
+    - handle: "@bfin"
+      name: "Bradley Leimer"
+      focus: ["Banking innovation", "Fintech"]
+      keywords: ["Bradley Leimer banking"]
+      
+    - handle: "@jessicahall9"
+      name: "Jessica Hall"
+      focus: ["Banking tech", "Digital transformation"]
+      keywords: ["Jessica Hall banking"]
+
+  # GitHub监控（需要GitHub API）
+  github_trending:
+    - repo: "microsoft/bank-fraud-detection"
+      topic: "fraud-detection"
+      
+    - repo: "jpmorganchase/algorithmic-trading"
+      topic: "trading"
+      
+    - search_queries:
+        - "banking AI stars:>100 pushed:>2026-03-01"
+        - "fraud detection machine learning stars:>50 pushed:>2026-03-01"
+        - "credit scoring AI stars:>50 pushed:>2026-03-01"
+        - "anti-money laundering AML AI stars:>30 pushed:>2026-03-01"
+
+  # 学术追踪
+  academic:
+    - source: "arXiv q-fin"
+      url: "https://arxiv.org/list/q-fin/recent"
+      keywords: ["arXiv quantitative finance", "arXiv q-fin"]
+      frequency: "daily"
+      
+    - source: "arXiv cs.AI / cs.LG"
+      url: "https://arxiv.org/list/cs.AI/recent"
+      keywords: ["arXiv AI", "arXiv machine learning"]
+      frequency: "daily"
+      
+    - source: "SSRN Finance"
+      url: "https://www.ssrn.com/index.cfm/en/fin/"
+      keywords: ["SSRN AI banking", "SSRN machine learning finance"]
+      frequency: "weekly"
+
+# ============================================
+# 第四层：竞争对手情报（Competitive Intelligence）
+# 特点：监控竞争对手动态、招聘信号、专利申请
+# 优先级：高（战略决策支持）
+# ============================================
+
+competitive_intel:
+  # 主要竞争对手官方渠道
+  competitors:
+    - name: "JPMorgan Chase"
+      channels:
+        - "https://www.jpmorgan.com/technology/artificial-intelligence"
+        - "https://www.jpmorgan.com/technology/machine-learning"
+      keywords: ["JPMorgan AI", "JPMorgan COiN", "JPMorgan machine learning"]
+      
+    - name: "Goldman Sachs"
+      channels:
+        - "https://www.goldmansachs.com/technology/"
+      keywords: ["Goldman Sachs AI", "Goldman Sachs engineering"]
+      
+    - name: "Bank of America"
+      channels:
+        - "https://www.bankofamerica.com/tech-innovation/"
+      keywords: ["Bank of America AI", "Bank of America Erica"]
+      
+    - name: "Citigroup"
+      channels:
+        - "https://www.citigroup.com/global/investors/"
+      keywords: ["Citigroup AI", "Citi fintech"]
+      
+    - name: "招商银行"
+      channels:
+        - "http://www.cmbchina.com/cmbfin/"
+      keywords: ["招商银行 AI", "招行 金融科技", "招商银行 人工智能"]
+      
+    - name: "平安银行"
+      channels:
+        - "http://bank.pingan.com/fintech/"
+      keywords: ["平安银行 AI", "平安银行 人工智能", "平安 fintech"]
+
+  # 招聘信号监控（LinkedIn Jobs API）
+  hiring_signals:
+    companies:
+      - "JPMorgan Chase"
+      - "Goldman Sachs"
+      - "Bank of America"
+      - "Citigroup"
+      - "Morgan Stanley"
+      - "招商银行"
+      - "平安银行"
+      - "工商银行"
+    job_titles:
+      - "AI Engineer"
+      - "Machine Learning Engineer"
+      - "AI Research Scientist"
+      - "NLP Engineer"
+      - "Computer Vision Engineer"
+      - "MLOps Engineer"
+      - "AI Product Manager"
+    
+  # 专利监控（USPTO, EPO, 中国专利局）
+  patents:
+    - source: "USPTO"
+      keywords: ["banking AI patent", "financial machine learning patent"]
+      
+    - source: "中国专利局"
+      keywords: ["银行 人工智能 专利", "金融 机器学习 专利"]
+
+# ============================================
+# 第五层：宏观经济与市场数据
+# 特点：影响AI投资、预算分配
+# 优先级：中（周期性监控）
+# ============================================
+
+macro_economic:
+  # AI投资数据
+  ai_investment:
+    - source: "Crunchbase"
+      keywords: ["AI funding banking", "fintech AI investment"]
+      
+    - source: "PitchBook"
+      keywords: ["AI financial services investment", "banking tech funding"]
+      
+    - source: "CB Insights State of AI"
+      keywords: ["CB Insights AI funding", "AI unicorn banking"]
+
+  # 芯片/基础设施
+  ai_infrastructure:
+    - source: "NVIDIA"
+      keywords: ["NVIDIA financial services", "NVIDIA banking AI"]
+      
+    - source: "AMD"
+      keywords: ["AMD financial services", "AMD banking AI"]
+      
+    - source: "Intel"
+      keywords: ["Intel financial services", "Intel banking AI"]
+
+# ============================================
+# 搜索关键词模板
+# 按主题组织的搜索组合
+# ============================================
+
+search_templates:
+  # 主题1: 监管合规
+  regulatory:
+    base: "AI regulation banking {date}"
+    variations:
+      - "AI Act banking compliance"
+      - "algorithmic accountability banking"
+      - "model risk management AI"
+      - "AI governance framework bank"
+      - "监管 银行 人工智能 {date}"
+      - "AI 合规 银行 {date}"
+
+  # 主题2: 银行业AI应用
+  banking_applications:
+    base: "AI banking {date}"
+    variations:
+      - "credit scoring AI bank"
+      - "fraud detection machine learning"
+      - "anti-money laundering AI"
+      - "algorithmic trading AI"
+      - "customer service chatbot bank"
+      - "智能风控 银行 {date}"
+      - "AI 信贷审批 {date}"
+      - "反欺诈 人工智能 银行 {date}"
+
+  # 主题3: 技术突破
+  tech_breakthrough:
+    base: "AI breakthrough {date}"
+    variations:
+      - "LLM finance application"
+      - "agentic AI enterprise"
+      - "RAG banking knowledge"
+      - "multimodal AI financial"
+
+  # 主题4: 竞争对手动态
+  competitor:
+    base: "{bank} AI {date}"
+    banks:
+      - "JPMorgan"
+      - "Goldman Sachs"
+      - "Bank of America"
+      - "招商银行"
+      - "平安银行"
+
+# ============================================
+# 报告结构建议
+# ============================================
+
+report_structure:
+  sections:
+    - id: "regulatory_radar"
+      name: "监管雷达"
+      sources: ["regulatory_intl", "regulatory_us", "regulatory_uk_eu", "regulatory_apac"]
+      priority: "high"
+      
+    - id: "competitor_intel"
+      name: "同业动态"
+      sources: ["bank_official", "competitors"]
+      priority: "high"
+      
+    - id: "tech_breakthrough"
+      name: "技术突破"
+      sources: ["academic", "github_trending", "twitter_kol"]
+      priority: "high"
+      
+    - id: "market_investment"
+      name: "市场与投资"
+      sources: ["ai_investment", "consulting"]
+      priority: "medium"
+      
+    - id: "infrastructure"
+      name: "基础设施"
+      sources: ["ai_infrastructure"]
+      priority: "medium"
+
+# ============================================
+# 配置文件版本
+# ============================================
+
+meta:
+  version: "1.0"
+  created_by: "Kimi Claw"
+  created_date: "2026-04-05"
+  for_user: "Qucy / HSBC Innovation"
+  purpose: "Banking AI daily intelligence source configuration"
+  update_frequency: "建议每月review一次信源有效性"

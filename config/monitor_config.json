@@ -1,0 +1,341 @@
+{
+  "version": "1.0",
+  "name": "Banking AI Intelligence Monitor",
+  "description": "Twitter/X and GitHub monitoring system for banking AI intelligence",
+  "created_date": "2026-04-05",
+  
+  "twitter_monitor": {
+    "enabled": false,
+    "check_interval_minutes": 180,
+    "daily_budget_tweets": 150,
+    
+    "accounts": {
+      "ai_researchers": [
+        {
+          "handle": "karpathy",
+          "name": "Andrej Karpathy",
+          "priority": "high",
+          "keywords": ["LLM", "AI", "model", "training", "reasoning"],
+          "alert_on": ["new model", "breakthrough", "paper"]
+        },
+        {
+          "handle": "AndrewYNg",
+          "name": "Andrew Ng",
+          "priority": "high",
+          "keywords": ["AI", "enterprise", "banking", "workflow", "agent"],
+          "alert_on": ["new course", "landing ai", "enterprise ai"]
+        }
+      ],
+      
+      "banking_fintech_experts": [],
+      
+      "bank_official": [
+        {
+          "handle": "jpmorgan",
+          "name": "JPMorgan Chase",
+          "priority": "high",
+          "keywords": ["AI", "technology", "innovation", "COIN"],
+          "alert_on": ["announcement", "product launch"]
+        },
+        {
+          "handle": "GoldmanSachs",
+          "name": "Goldman Sachs",
+          "priority": "high",
+          "keywords": ["engineering", "AI", "machine learning"],
+          "alert_on": ["engineering blog", "AI initiative"]
+        },
+        {
+          "handle": "HSBC",
+          "name": "HSBC",
+          "priority": "high",
+          "keywords": ["innovation", "AI", "digital", "fintech"],
+          "alert_on": ["announcement", "partnership"]
+        }
+      ],
+      
+      "vc_investors": []
+    },
+    
+    "keywords_monitor": {
+      "global_keywords": [
+        "AI banking",
+        "AI finance",
+        "machine learning banking",
+        "fintech AI",
+        "algorithmic trading",
+        "credit scoring AI",
+        "fraud detection ML",
+        "RegTech",
+        "AI regulation",
+        "AI governance"
+      ],
+      
+      "breaking_keywords": [
+        "GPT-5",
+        "Claude 4",
+        "new model",
+        "AI breakthrough",
+        "funding",
+        "acquisition",
+        "partnership"
+      ],
+      
+      "chinese_keywords": [
+        "银行 人工智能",
+        "金融 AI",
+        "智能风控",
+        "反欺诈 算法",
+        "监管科技",
+        "招商银行 AI",
+        "平安银行 AI",
+        "蚂蚁 AI"
+      ]
+    },
+    
+    "alert_rules": {
+      "high_priority": {
+        "conditions": [
+          "account_priority == 'high' AND engagement > 1000",
+          "breaking_keyword_match == true"
+        ],
+        "action": "immediate_notification"
+      },
+      
+      "medium_priority": {
+        "conditions": [
+          "account_priority == 'medium' AND engagement > 500",
+          "keyword_match_count >= 2"
+        ],
+        "action": "batch_digest"
+      },
+      
+      "low_priority": {
+        "conditions": [
+          "all_other_cases"
+        ],
+        "action": "daily_summary"
+      }
+    }
+  },
+  
+  "github_monitor": {
+    "enabled": true,
+    "check_interval_minutes": 180,
+    
+    "repositories": {
+      "banking_fintech": [
+        {
+          "owner": "microsoft",
+          "repo": "ai-edu",
+          "priority": "medium",
+          "track": ["releases", "commits", "stars"]
+        },
+        {
+          "owner": "google",
+          "repo": "tensorflow",
+          "priority": "low",
+          "track": ["releases"]
+        },
+        {
+          "owner": "pytorch",
+          "repo": "pytorch",
+          "priority": "low",
+          "track": ["releases"]
+        },
+        {
+          "owner": "huggingface",
+          "repo": "transformers",
+          "priority": "medium",
+          "track": ["releases", "trending"]
+        },
+        {
+          "owner": "langchain-ai",
+          "repo": "langchain",
+          "priority": "medium",
+          "track": ["releases", "stars"]
+        },
+        {
+          "owner": "microsoft",
+          "repo": "promptflow",
+          "priority": "medium",
+          "track": ["releases"]
+        }
+      ],
+      
+      "fraud_detection": [
+        {
+          "search_query": "fraud detection machine learning stars:>100",
+          "priority": "high",
+          "track": ["new repos", "stars growth"]
+        },
+        {
+          "search_query": "credit scoring AI stars:>50",
+          "priority": "high",
+          "track": ["new repos", "commits"]
+        },
+        {
+          "search_query": "anti-money laundering AML stars:>30",
+          "priority": "high",
+          "track": ["new repos", "updates"]
+        },
+        {
+          "search_query": "risk management banking stars:>30",
+          "priority": "medium",
+          "track": ["new repos"]
+        }
+      ],
+      
+      "algorithmic_trading": [
+        {
+          "search_query": "algorithmic trading ML stars:>100",
+          "priority": "medium",
+          "track": ["new repos", "stars growth"]
+        },
+        {
+          "search_query": "quantitative finance deep learning stars:>50",
+          "priority": "medium",
+          "track": ["new repos"]
+        },
+        {
+          "search_query": "time series forecasting finance stars:>50",
+          "priority": "medium",
+          "track": ["new repos"]
+        }
+      ],
+      
+      "nlp_banking": [
+        {
+          "search_query": "NLP financial documents stars:>30",
+          "priority": "medium",
+          "track": ["new repos"]
+        },
+        {
+          "search_query": "document AI banking stars:>30",
+          "priority": "medium",
+          "track": ["new repos"]
+        },
+        {
+          "search_query": "RAG financial data stars:>30",
+          "priority": "medium",
+          "track": ["new repos"]
+        }
+      ]
+    },
+    
+    "trending_monitor": {
+      "languages": ["Python", "Jupyter Notebook"],
+      "topics": [
+        "machine-learning",
+        "deep-learning",
+        "fintech",
+        "banking",
+        "finance",
+        "nlp",
+        "time-series",
+        "anomaly-detection"
+      ],
+      "min_stars": 50,
+      "created_after": "2026-01-01"
+    },
+    
+    "alert_rules": {
+      "new_release": {
+        "condition": "new release published",
+        "priority": "high",
+        "action": "notify"
+      },
+      "stars_milestone": {
+        "condition": "stars cross milestone (1k, 5k, 10k, etc.)",
+        "priority": "medium",
+        "action": "log"
+      },
+      "new_trending": {
+        "condition": "new repo enters trending",
+        "priority": "high",
+        "action": "notify"
+      },
+      "significant_commits": {
+        "condition": "major feature merged or significant commit",
+        "priority": "medium",
+        "action": "digest"
+      }
+    }
+  },
+  
+  "output_settings": {
+    "daily_digest": {
+      "enabled": true,
+      "time": "07:00",
+      "format": "markdown",
+      "sections": [
+        "twitter_highlights",
+        "github_releases",
+        "new_trending_repos",
+        "keyword_matches"
+      ]
+    },
+    
+    "realtime_alerts": {
+      "enabled": true,
+      "channels": ["console", "file"],
+      "high_priority_forward": []
+    },
+    
+    "weekly_summary": {
+      "enabled": true,
+      "day": "Monday",
+      "time": "08:00",
+      "include_charts": true
+    }
+  },
+  
+  "storage": {
+    "data_dir": "./monitor_data",
+    "retention_days": 90,
+    "formats": ["json", "markdown"]
+  },
+  
+  "api_config": {
+    "twitter": {
+      "note": "Requires Twitter API v2 credentials",
+      "bearer_token": "${TWITTER_BEARER_TOKEN}",
+      "rate_limit": {
+        "requests_per_15min": 450,
+        "requests_per_day": 1000
+      }
+    },
+    
+    "github": {
+      "note": "Personal access token recommended for higher rate limits",
+      "token": "${GITHUB_TOKEN}",
+      "rate_limit": {
+        "authenticated_requests_per_hour": 5000,
+        "unauthenticated_requests_per_hour": 60
+      }
+    }
+  },
+  
+  "notes": {
+    "setup": [
+      "1. Set environment variables: TWITTER_BEARER_TOKEN, GITHUB_TOKEN",
+      "2. Install dependencies: pip install tweepy PyGithub schedule",
+      "3. Run monitor: python monitor.py",
+      "4. For production, use systemd or cron to keep running"
+    ],
+    
+    "limitations": [
+      "Twitter API v2 has rate limits - monitor may need to slow down for free tier",
+      "GitHub trending API is not official - may break or change",
+      "Chinese social media (Weibo, WeChat) require separate monitoring approach"
+    ],
+    
+    "future_enhancements": [
+      "LinkedIn company page monitoring",
+      "Reddit (r/MachineLearning, r/fintech) monitoring",
+      "Discord server monitoring (AI communities)",
+      "YouTube channel monitoring (Two Minute Papers, etc.)",
+      "arXiv paper release monitoring",
+      "Crunchbase funding alert integration"
+    ]
+  }
+}

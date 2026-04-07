@@ -1,0 +1,78 @@
+# AI Model Filtering Configuration
+# AI模型筛选配置文件
+# 
+# 目的：避免在日报中收录风评不佳、已淘汰或已停止迭代的模型
+# Purpose: Exclude poorly-received, discontinued, or deprecated models from daily reports
+
+---
+
+## 已排除模型 / Excluded Models
+
+### 风评不佳 / Poor Reception
+- **Llama 4 Scout**
+  - 原因: 性能不及预期，社区反馈负面
+  - 状态: Meta已宣布重新训练
+  - 排除日期: 2026-04-07
+  - 替代建议: 关注 Llama 4 重新训练后的新版本
+
+### 已停止迭代 / Discontinued
+- **GPT-3.5 Turbo** (legacy)
+  - 原因: OpenAI已停止维护，推荐使用GPT-4系列
+  - 排除日期: 2026-01-01
+
+### 不推荐关注 / Not Recommended
+- **早期实验性模型** (< 1B参数，无实际应用场景)
+- **已停止服务的API模型** (如某些初创公司的已下线模型)
+
+---
+
+## 推荐关注模型 / Recommended Models
+
+### 闭源标杆 / Closed-Source Leaders
+| 模型 | 厂商 | 关注重点 | 银行业适用性 |
+|------|------|----------|--------------|
+| GPT-5.4 | OpenAI | 企业级能力、OSWorld基准 | ⭐⭐⭐⭐⭐ |
+| Claude 4 | Anthropic | 长上下文、安全性 | ⭐⭐⭐⭐⭐ |
+| Gemini 3.1 | Google | 多模态、成本效益 | ⭐⭐⭐⭐ |
+
+### 开源领先 / Open-Source Leaders
+| 模型 | 厂商 | 关注重点 | 银行业适用性 |
+|------|------|----------|--------------|
+| DeepSeek V4 | DeepSeek | 代码能力、成本优势 | ⭐⭐⭐⭐ |
+| Qwen 3 | Alibaba | 多语言、企业级 | ⭐⭐⭐⭐ |
+| Mistral Large 2 | Mistral | 欧洲合规、性能 | ⭐⭐⭐ |
+
+### 垂直领域 / Domain-Specific
+| 类别 | 代表模型 | 关注重点 |
+|------|----------|----------|
+| 金融专用 | BloombergGPT, FinBERT | 金融NLP任务 |
+| 代码生成 | Codex, Claude Code, Qwen-Coder | 银行IT自动化 |
+| 多模态 | GPT-5.4V, Gemini Pro Vision | 文档处理 |
+
+---
+
+## 搜索关键词优化 / Search Keyword Guidelines
+
+### 推荐使用的限定词 / Recommended Qualifiers
+- `benchmark 2026` - 确保获取最新基准测试
+- `enterprise adoption` - 企业级应用动态
+- `latest version` - 最新版本信息
+- `production ready` - 生产就绪状态
+
+### 避免使用的关键词 / Keywords to Avoid
+- 避免直接使用模型版本号搜索过时版本
+- 避免使用 `review`, `comparison` 等可能返回旧内容的词
+- 避免未经验证的第三方 benchmark
+
+---
+
+## 更新记录 / Update Log
+
+| 日期 | 变更 | 说明 |
+|------|------|------|
+| 2026-04-07 | 新增排除 | Llama 4 Scout (Meta宣布重新训练) |
+| 2026-03-01 | 初始版本 | 建立模型筛选框架 |
+
+---
+
+*本文件由AI助手维护，根据模型实际表现动态更新*

@@ -1,0 +1,95 @@
+# ============================================
+# 一级信源：监管动态 (最高优先级)
+# ============================================
+
+## 国际监管
+BIS artificial intelligence banking guidance 2026
+FSB AI financial stability report 2026
+Basel Committee operational risk AI 2026
+
+## 美国监管  
+Federal Reserve AI guidance banking 2026
+OCC model risk management AI 2026
+CFPB AI lending algorithm 2026
+
+## 欧洲监管
+Bank of England AI machine learning 2026
+FCA artificial intelligence regulation 2026
+EU AI Act banking financial services 2026
+EBA machine learning guidelines 2026
+
+## 亚太监管
+HKMA fintech AI guidance 2026
+MAS Singapore AI finance 2026
+中国人民银行 人工智能 银行 2026
+银保监会 算法 监管 2026
+
+# ============================================
+# 二级信源：专家观点 (KOL)
+# ============================================
+
+## AI研究员
+Andrew Ng AI enterprise workflow 2026
+Andrej Karpathy LLM model training 2026
+Yann LeCun LLM reasoning JEPA 2026
+Fei-Fei Li AI policy ethics 2026
+
+## 技术专家
+Ian Goodfellow AI security adversarial 2026
+David Ha generative RL 2026
+Jeremy Howard fast.ai practical ML 2026
+
+## 银行/Fintech专家
+Jim Marous digital banking AI 2026
+Bradley Leimer fintech innovation 2026
+Brett King banking future AI 2026
+Ron Shevlin banking research 2026
+
+# ============================================
+# 三级信源：银行业AI应用
+# ============================================
+
+## 同业动态
+JPMorgan COiN AI platform 2026
+Goldman Sachs machine learning trading 2026
+HSBC innovation AI digital 2026
+招商银行 人工智能 金融科技 2026
+平安银行 AI 智能风控 2026
+
+## 应用场景
+AI credit scoring banking 2026
+fraud detection machine learning bank 2026
+anti-money laundering AI AML 2026
+algorithmic trading AI hedge fund 2026
+KYC AI know your customer 2026
+
+# ============================================
+# 三级信源：技术突破
+# ============================================
+
+## 模型竞争
+Claude SWE-bench coding benchmark 2026
+GPT-5.4 OSWorld benchmark 2026
+Gemini 3.1 enterprise benchmark 2026
+
+## 基础设施
+AMD MI355X MLPerf inference 2026
+NVIDIA B300 benchmark 2026
+AI datacenter investment trillion 2026
+
+## Agentic AI
+Agentic AI enterprise adoption 2026
+Microsoft Agent Governance Toolkit
+OpenAI Operator computer use 2026
+
+# ============================================
+# 四级信源：竞争情报
+# ============================================
+
+## 投资并购
+AI fintech funding Series A B C 2026
+banking AI startup acquisition 2026
+
+## 人才动态
+AI researcher move JPMorgan Goldman 2026
+banking AI chief data officer hire 2026
