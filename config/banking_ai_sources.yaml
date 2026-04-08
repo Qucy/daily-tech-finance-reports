@@ -329,6 +329,34 @@ tertiary_sources:
         - "credit scoring AI stars:>50 pushed:>2026-03-01"
         - "anti-money laundering AML AI stars:>30 pushed:>2026-03-01"
 
+  # 中文 AI KOL / 博主
+  chinese_kol:
+    - name: "宝玉xp"
+      platform: "微博 / Weibo"
+      url: "https://weibo.com/u/1727858283"
+      blog: "https://baoyu.io/blog"
+      description: "前微软Asp.Net MVP，111万+粉丝，最具影响力AI大V，2025微博年度新知博主。专注AI大模型、编程工具、Agent技术的中文科技博主。"
+      focus: ["AI大模型", "Claude", "ChatGPT", "Agent", "编程工具", "AI应用"]
+      keywords: 
+        - "宝玉xp"
+        - "宝玉 xp AI"
+        - "baoyu.io"
+      frequency: "daily"
+      priority: "high"
+      content_type: "AI新闻翻译/评论、产品体验、技术趋势分析"
+      
+    - name: "高飞"
+      platform: "微博 / Weibo"
+      focus: ["AI", "科技评论"]
+      keywords: ["高飞 AI"]
+      frequency: "daily"
+      
+    - name: "阑夕"
+      platform: "微博 / Weibo"
+      focus: ["科技", "互联网"]
+      keywords: ["阑夕 AI"]
+      frequency: "daily"
+
   # 学术追踪
   academic:
     - source: "arXiv q-fin"
