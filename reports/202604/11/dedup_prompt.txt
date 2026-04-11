@@ -1,0 +1,31 @@
+重复检测检查清单 / Deduplication Checklist:
+
+在生成今日报告前，请对比前3天报告中的主要主题，避免重复：
+Before generating today's report, compare with main topics from the past 3 days to avoid duplication:
+
+[AI将根据实际前3天报告内容填充]
+
+重复度>50%时的补充搜索主题 / Supplementary topics when duplication > 50%:
+1. 监管动态 / Regulatory updates (BIS, Fed, PBOC, etc.)
+2. 银行业AI应用 / Banking AI applications (JPMorgan, Goldman, etc.)
+3. 技术基础设施 / Tech infrastructure (AMD, NVIDIA, datacenters)
+4. 竞争情报 / Competitive intelligence (hiring, patents, partnerships)
+
+目标 / Target: 确保与前3日报告重复度<30% / Ensure <30% duplication with past 3 days
+
+---
+
+【模型筛选标准 / Model Filtering Criteria】
+
+✅ 推荐关注的模型 / Models to Track:
+   - 闭源标杆: GPT-5.4, Claude 4, Gemini 3.1
+   - 开源领先: DeepSeek V4, Qwen 3, Mistral Large 2
+   - 垂直领域: 金融专用模型、代码生成模型
+
+❌ 避免收录 / Models to Exclude:
+   - Llama 4 Scout (风评不佳，Meta已宣布重新训练)
+   - 已停止迭代的旧版本模型
+   - 社区反馈持续负面的模型
+
+搜索时优先使用 "latest", "benchmark 2026", "enterprise" 等限定词，
+避免检索到过时或低质量模型的新闻。

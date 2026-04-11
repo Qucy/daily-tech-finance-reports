@@ -1,0 +1,69 @@
+# ============================================
+# 一级信源：监管动态 (最高优先级)
+# ============================================
+
+## 国际监管 / International Regulation
+BIS artificial intelligence banking guidance 2026
+FSB AI financial stability report 2026
+Basel Committee operational risk AI 2026
+Federal Reserve AI guidance banking 2026
+OCC model risk management AI 2026
+CFPB AI lending algorithm 2026
+Bank of England AI machine learning 2026
+FCA artificial intelligence regulation 2026
+EU AI Act banking financial services 2026
+EBA machine learning guidelines 2026
+HKMA fintech AI guidance 2026
+MAS Singapore AI finance 2026
+中国人民银行 人工智能 银行 2026
+银保监会 算法 监管 2026
+
+# ============================================
+# 二级信源：专家观点 (KOL)
+# ============================================
+
+## AI研究员 / AI Researchers
+Andrew Ng AI enterprise workflow 2026
+Andrej Karpathy LLM model training 2026
+Yann LeCun LLM reasoning JEPA 2026
+Fei-Fei Li AI policy ethics 2026
+
+## 银行/Fintech专家 / Banking Experts
+Jim Marous digital banking AI 2026
+Bradley Leimer fintech innovation 2026
+Brett King banking future AI 2026
+Ron Shevlin banking research 2026
+
+# ============================================
+# 三级信源：银行业AI应用 / Banking AI Applications
+# ============================================
+
+## 同业动态 / Bank Initiatives
+JPMorgan COiN AI platform 2026
+Goldman Sachs machine learning trading 2026
+HSBC innovation AI digital 2026
+招商银行 人工智能 金融科技 2026
+平安银行 AI 智能风控 2026
+工商银行 AI 信贷 智能体 2026
+
+## 应用场景 / Use Cases
+AI credit scoring banking 2026
+fraud detection machine learning bank 2026
+anti-money laundering AI AML 2026
+algorithmic trading AI hedge fund 2026
+KYC AI know your customer 2026
+
+# ============================================
+# 四级信源：技术突破 / Tech Breakthroughs
+# ============================================
+# 
+# 【模型筛选标准 / Model Selection Criteria】
+# ✅ 关注：行业标杆模型 (GPT/Claude/Gemini)、开源领先者 (DeepSeek/Llama 3/Qwen)、企业级新星
+# ❌ 排除：风评不佳、已淘汰或Meta已宣布重新训练的模型 (如 Llama 4 Scout)
+#
+Claude SWE-bench coding benchmark 2026
+GPT-5.4 OSWorld benchmark 2026
+Gemini 3.1 enterprise benchmark 2026
+DeepSeek V4 benchmark 2026
+Qwen 3 enterprise benchmark 2026
+Agentic AI enterprise adoption 2026
